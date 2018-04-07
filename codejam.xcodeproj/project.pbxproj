@@ -25,6 +25,7 @@
 /* Begin PBXFileReference section */
 		09AA0C64206F7AF7004EC1A8 /* codejam */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = codejam; sourceTree = BUILT_PRODUCTS_DIR; };
 		09AA0C67206F7AF7004EC1A8 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		09AA0C6E206F7B6F004EC1A8 /* oversized_pancake */ = {isa = PBXFileReference; lastKnownFileType = folder; name = oversized_pancake; path = ../../jam2/oversized_pancake; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +58,7 @@
 		09AA0C66206F7AF7004EC1A8 /* codejam */ = {
 			isa = PBXGroup;
 			children = (
+				09AA0C6E206F7B6F004EC1A8 /* oversized_pancake */,
 				09AA0C67206F7AF7004EC1A8 /* main.cpp */,
 			);
 			path = codejam;
