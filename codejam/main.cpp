@@ -37,6 +37,14 @@ int main()
 
     std::cout << std::endl << std::endl << std::endl;
     linkedList.traverse();
+
+    linkedList.removeFirst();
+    std::cout << std::endl << std::endl << std::endl;
+    linkedList.traverse();
+
+    linkedList.removeLast();
+    std::cout << std::endl << std::endl << std::endl;
+    linkedList.traverse();
     
     return 0;
 }
