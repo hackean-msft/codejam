@@ -1,3 +1,9 @@
+<<<<<<< HEAD
 bin/
 .history/
 .vscode/
+=======
+.history/
+.vscode/
+bin/
+>>>>>>> 1abffeeb5fc22410d3c2e4f74c9f3fcaf201b0ef
