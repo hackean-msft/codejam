@@ -1,33 +1,16 @@
-#include <vector>
 #include <exception>
-
-template <class T>
-class Queue
-{
-  private:
-    typename std::vector<T> items;
-    typename std::vector<T>::iterator current;
-
-  public:
-    void enqueue(T item);
-    T deque();
-    bool isEmpty();
-};
+#include "Queue.h"
 
 template <class T>
 void Queue<T>::enqueue(T item)
 {
-    items.push_back(item);
-    if (items.size() == 1)
-    {
-        this->current = items.begin();
-    }
+    this->items->addLast(item);
 }
 
-template <class T>
+template <class T> 
 bool Queue<T>::isEmpty()
 {
-    return (this->current == items.end());
+    return this->items.getSize() == 0;
 }
 
 template <class T>
@@ -35,9 +18,8 @@ T Queue<T>::deque()
 {
     if (!isEmpty())
     {
-        T value = *this->current;
-        this->current++;
-        return value;
+        T value = this->items.get(0);
+        this->items.removeFirst();
     }
     else
     {

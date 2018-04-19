@@ -1,24 +1,9 @@
-#include <memory>
+#include <iostream>
 #include <exception>
+#include <sstream>
+#include "LinkedList.h"
 
 using namespace std;
-
-template <class T>
-class Node
-{
-private:
-    T element;
-    shared_ptr<Node<T> > next;
-    shared_ptr<Node<T> > previous;
-    
-public:
-    Node(T element);
-    T getElement();
-    void setNext(std::shared_ptr<Node<T> > next);
-    void setPrevious(std::shared_ptr<Node<T> > prev);
-    shared_ptr<Node<T> > getNext();
-    shared_ptr<Node<T> >getPrevious();
-};
 
 template <class T>
 Node<T>::Node(T element)
@@ -58,30 +43,12 @@ std::shared_ptr<Node<T> > Node<T>::getPrevious()
 
 
 
-
-/*
-    Linked List implementation
-*/
-template <class U>
-class LinkedList
-{
-private:
-    std::shared_ptr<Node<U> > first;
-    std::shared_ptr<Node<U> > last;
-    int size;
-
-    void increaseSize();
-    void decreaseSize();
-    
-public:
-    LinkedList();
-    void addLast(U element);
-    void addFirst(U element);
-    void removeFirst();
-    void removeLast();
-    int getSize();
-    void traverse();
-};
+/** 
+ * 
+ * Linked List implementation
+ * 
+ * 
+ * */
 
 template <class U>
 LinkedList<U>::LinkedList()
@@ -182,9 +149,27 @@ void LinkedList<U>::traverse()
     std::shared_ptr<Node<U> > current = this->first;
     while(current != nullptr)
     {
-        Node<U> node = *current;
-        std::cout << node.getElement() << std::endl;
-        current = node.getNext();
+        std::cout << current->getElement() << std::endl;
+        current = current->getNext();
     }
 }
 
+template <class U>
+U LinkedList<U>::get(int index)
+{
+    if (index < 0 || index > this->getSize())
+    {
+        throw std::range_error("Cannot access index at " + std::to_string(index));
+    } else
+    {
+        int i = 0;
+        std::shared_ptr<Node<U> > current = this->first;
+        while ( i < index)
+        {
+            i++;
+            current = current->getNext();
+        }
+        return current->getElement();
+    }
+    
+}
