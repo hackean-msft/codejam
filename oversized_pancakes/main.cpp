@@ -2,7 +2,7 @@
 // #include <vector>
 // #include "surface.cpp"
 #include <string>
-#include "LinkedList.cpp"
+#include "Queue.cpp"
 
 int main()
 {
@@ -18,19 +18,19 @@ int main()
     //     std::cout << *it << std::endl;
     // }
 
-    LinkedList<std::string> linkedList;
+    Queue<std::string> queue;
 
-    linkedList.addLast("wale");
-    linkedList.addLast("Timi");
-    linkedList.addLast("Banjo");
-    linkedList.addLast("Adewale");
+    queue.enqueue("wale");
+    queue.enqueue("Timi");
+    queue.enqueue("Banjo");
+    queue.enqueue("Adewale");
 
-    std::cout << linkedList.get(0) << std::endl;
-    std::cout << linkedList.get(1) << std::endl;
-    std::cout << linkedList.get(2) << std::endl;
-    std::cout << linkedList.get(3) << std::endl;
+    std::cout << queue.deque() << std::endl;
+    std::cout << queue.deque() << std::endl;
+    std::cout << queue.deque() << std::endl;
+    std::cout << queue.deque() << std::endl;
 
-    linkedList.traverse();
+    queue.deque();
 
     return 0;
 }

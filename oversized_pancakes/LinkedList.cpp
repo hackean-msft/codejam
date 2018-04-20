@@ -102,11 +102,17 @@ void LinkedList<U>::removeFirst()
     if (this->getSize() == 0)
     {
         throw std::length_error("Can't remove element from an empty linked list");
+    } 
+    else if (this->getSize() == 1)
+    {
+        this->first = this->last = nullptr;
     }
-
-    shared_ptr<Node<U> > nextNodePtr = this->first->getNext();
-    nextNodePtr->setPrevious(nullptr);
-    this->first = nextNodePtr;
+    else 
+    {
+        shared_ptr<Node<U> > nextNodePtr = this->first->getNext();
+        nextNodePtr->setPrevious(nullptr);
+        this->first = nextNodePtr;
+    }
     this->decreaseSize();
 }
 
@@ -117,11 +123,19 @@ void LinkedList<U>::removeLast()
     {
         throw std::length_error("Can't remove element from an empty linked list");
     }
-
-    shared_ptr<Node<U> > prevNodePtr = this->last->getPrevious();
-    prevNodePtr->setNext(nullptr);
-    this->last = prevNodePtr;
+    else if (this->getSize() == 1)
+    {
+        this->first = this->last = nullptr;
+    }
+    else
+    {
+        shared_ptr<Node<U> > prevNodePtr = this->last->getPrevious();
+        prevNodePtr->setNext(nullptr);
+        this->last = prevNodePtr;
+    }
     this->decreaseSize();
+
+    
 }
 
 template <class U>
